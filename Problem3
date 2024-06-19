@@ -1,0 +1,24 @@
+class Solution:
+    #TC:O(n+m)
+    #SC:O(1)
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        '''
+        Approach: take 2 pointer in row and col
+        if target is less than val decrement the col
+        else increment it
+        '''
+        n=len(matrix)
+        m=len(matrix[0])
+        row=0
+        col=m-1
+
+        while row<n and col>0:
+            if matrix[row][col]==target:
+                return True
+            if matrix[row][col]>target:
+                col-=1
+                
+            else:
+                row+=1
+        return False
+        
